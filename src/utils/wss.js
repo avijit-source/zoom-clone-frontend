@@ -3,12 +3,13 @@ import { setParticipants, setRoomId } from "../features/counterSlice";
 import store from "../features/store"
 import * as webRTCHandler from "./webrtchandler"
 
-const SERVER = 'https://zoom-clone-node.onrender.com';
+const SERVER2 = 'https://zoom-clone-node.onrender.com';
+// const SERVER2 = "http://localhost:5000"
 
 let socket = null;
 
 export const connectWithSocket = () => {
-    socket = io(SERVER);
+    socket = io(SERVER2);
 
     socket.on("connect", () => {
         console.log("successfully connected with socket server");
@@ -19,6 +20,8 @@ export const connectWithSocket = () => {
 
     socket.on("room-id", (data) => {
         const { roomId } = data;
+        console.log("dataa,", roomId)
+
         store.dispatch(setRoomId(roomId));
     })
 
