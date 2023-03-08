@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:5000/api";
+const baseUrl = "https://zoom-clone-node.onrender.com/api";
 
 export const getRoomExists = async (roomId) => {
     const response = await axios.get(`${baseUrl}/room-exists/${roomId}`);
